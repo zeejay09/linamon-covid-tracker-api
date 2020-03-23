@@ -22,6 +22,7 @@ Route::prefix('v1')->group(function() {
     Route::get('covid-cases', 'Api\LaCovidCaseController@showAllCovidCases');
     Route::get('puis/barangays/{barangay_id}', 'Api\PuiController@showAllPuiByBrgy');
     Route::get('pums/barangays/{barangay_id}', 'Api\PumController@showAllPumByBrgy');
+    Route::get('covid-cases/barangays/{barangay_id}', 'Api\LaCovidCaseController@showAllCovidCasesByBrgy');
 
     Route::group(['middleware' => 'auth:api'], function() {
         Route::post('logout', 'Api\AuthController@logout');
@@ -35,6 +36,7 @@ Route::prefix('v1')->group(function() {
         Route::delete('roles', 'Api\RoleController@deleteRole');
         Route::get('roles/{role_id}', 'Api\RoleController@showRole');
         Route::put('roles/{role_id}', 'Api\RoleController@updateRole');
+        Route::get('barangays/{barangay_id}', 'Api\BarangayController@showBrgy');
         Route::post('barangays', 'Api\BarangayController@createBrgy');
         Route::delete('barangays', 'Api\BarangayController@deleteBrgy');
         Route::put('barangays/{barangay_id}', 'Api\BarangayController@updateBrgy');
@@ -46,10 +48,9 @@ Route::prefix('v1')->group(function() {
         Route::delete('pums', 'Api\PumController@deletePum');
         Route::get('pums/{pum_id}', 'Api\PumController@showPum');
         Route::put('pums/{pum_id}', 'Api\PumController@updatePum');
-        Route::post('covid-cases', 'Api\LaCovidCaseController@createCovidCase');
-        Route::delete('covid-cases', 'Api\LaCovidCaseController@deleteCovidCase');
+        Route::post('add/covid-cases', 'Api\LaCovidCaseController@createCovidCase');
+        Route::delete('delete/covid-cases', 'Api\LaCovidCaseController@deleteCovidCase');
         Route::get('covid-cases/{covid_case_id}', 'Api\LaCovidCaseController@showCovidCase');
         Route::put('covid-cases/{covid_case_id}', 'Api\LaCovidCaseController@updateCovidCase');
-        Route::get('covid-cases/barangays/{barangay_id}', 'Api\LaCovidCaseController@showAllCovidCasesByBrgy');
     });
 });
