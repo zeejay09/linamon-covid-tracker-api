@@ -29,7 +29,7 @@ class AuthController extends Controller
 
             if (!empty($roles)) { 
                 $success['token'] = 'Bearer ' . $user->createToken('COVID')->accessToken; 
-                return response()->json(['success' => $success], self::SUCCESS_STATUS); 
+                return response()->json(['success' => $success, 'role' => $user->role], self::SUCCESS_STATUS); 
             } else {
                 return response()->json([
                     'success' => false,
