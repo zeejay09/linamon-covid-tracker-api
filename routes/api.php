@@ -26,11 +26,11 @@ Route::prefix('v1')->group(function() {
 
     Route::group(['middleware' => 'auth:api'], function() {
         Route::post('logout', 'Api\AuthController@logout');
-        Route::post('users', 'Api\UserController@createUser');
+        Route::post('add/user', 'Api\UserController@createUser');
         Route::get('users', 'Api\UserController@showAllUsers');
-        Route::delete('users', 'Api\UserController@deleteUser');
-        Route::get('users/{user_id}', 'Api\UserController@showUser');
-        Route::put('users/{user_id}', 'Api\UserController@updateUser');
+        Route::delete('delete/users', 'Api\UserController@deleteUser');
+        Route::get('view/user/{user_id}', 'Api\UserController@showUser');
+        Route::put('edit/user/{user_id}', 'Api\UserController@updateUser');
         Route::get('roles', 'Api\RoleController@showAllRoles');
         Route::post('roles', 'Api\RoleController@createRole');
         Route::delete('roles', 'Api\RoleController@deleteRole');
