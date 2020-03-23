@@ -40,12 +40,12 @@ Route::prefix('v1')->group(function() {
         Route::post('barangays', 'Api\BarangayController@createBrgy');
         Route::delete('barangays', 'Api\BarangayController@deleteBrgy');
         Route::put('barangays/{barangay_id}', 'Api\BarangayController@updateBrgy');
-        Route::post('puis', 'Api\PuiController@createPui');
-        Route::delete('puis', 'Api\PuiController@deletePui');
+        Route::post('add/puis', 'Api\PuiController@createPui');
+        Route::delete('delete/puis', 'Api\PuiController@deletePui');
         Route::get('puis/{pui_id}', 'Api\PuiController@showPui');
         Route::put('puis/{pui_id}', 'Api\PuiController@updatePui');
-        Route::post('pums', 'Api\PumController@createPum');
-        Route::delete('pums', 'Api\PumController@deletePum');
+        Route::post('add/pums', 'Api\PumController@createPum');
+        Route::delete('delete/pums', 'Api\PumController@deletePum');
         Route::get('pums/{pum_id}', 'Api\PumController@showPum');
         Route::put('pums/{pum_id}', 'Api\PumController@updatePum');
         Route::post('add/covid-cases', 'Api\LaCovidCaseController@createCovidCase');
